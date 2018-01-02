@@ -2,6 +2,7 @@
  * @param {number[]} nums
  * @return {number}
  */
+// solving this problem using bitwise xor similar another problem solved in hashtable
 var singleNumber = function(nums) {
     var i,
         result = 0,
