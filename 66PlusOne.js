@@ -2,6 +2,7 @@
  * @param {number[]} digits
  * @return {number[]}
  */
+// my solution
 var plusOne = function(digits) {
     var len   = digits.length - 1,
           carry = 0,
@@ -30,4 +31,39 @@ var plusOne = function(digits) {
       }
       return digits;
     
+};
+
+// best solution as per memory concern 
+var plusOne = function(digits) {
+    //if (digits.length === 1 && digits[0] === 9) return [1, 0];
+    
+    for (let i = digits.length-1; i >= 0; i--){
+        if (digits[i] === 9){
+            digits[i] = 0;
+        }else{
+            digits[i]++;
+            return digits
+        }
+    }
+    digits.unshift(1)
+    return digits;
+};
+
+
+// best solution according to time complexity
+var plusOne = function(digits) {
+    var len = digits.length;
+    while(--len > -1) {
+        var ret = digits[len] + 1;
+        if (ret > 9) {
+            digits[len] = 0;
+            if (len === 0) {
+                digits.unshift(1);
+            }
+        } else {
+            digits[len] = ret;
+            break;
+        }
+    }
+    return digits;
 };
